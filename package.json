@@ -1,0 +1,21 @@
+{
+  "name": "cny-angpao-keeping",
+  "version": "1.0.0",
+  "description": "Bookkeep your angpao money and see who is your biggest contributor!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eugene-ats/cny-angpao-keeping.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/eugene-ats/cny-angpao-keeping/issues"
+  },
+  "homepage": "https://github.com/eugene-ats/cny-angpao-keeping#readme"
+}

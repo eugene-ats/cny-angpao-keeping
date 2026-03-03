@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CNY Angpao Keeper</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="desk-container">
+    <div class="interactive-layer">
+      <!-- Interactive Clickable Hotspots mapped directly over the background image -->
+      <div id="hotspot-angpao" class="hotspot hotspot-angpao" title="Add Angpao"></div>
+      <div id="hotspot-pen" class="hotspot hotspot-pen" title="Toggle Edit Mode"></div>
+
+      <!-- List renderer mapped to the notebook rect -->
+      <div id="notebook-container" class="notebook-list view-only">
+        <ul id="angpao-list"></ul>
+      </div>
+    </div>
+  </main>
+
+  <!-- Add Angpao Modal Dialog -->
+  <dialog id="add-angpao-modal" class="cny-modal">
+    <form method="dialog" id="add-angpao-form">
+      <h2>Add Angpao</h2>
+
+      <div class="input-group">
+        <label for="angpao-from">From:</label>
+        <input type="text" id="angpao-from" name="from" required placeholder="e.g. Grandma" autocomplete="off" />
+      </div>
+
+      <div class="input-group">
+        <label for="angpao-amount">Amount:</label>
+        <input type="number" id="angpao-amount" name="amount" required placeholder="e.g. 50" min="0" step="1" />
+      </div>
+
+      <menu class="modal-actions">
+        <button type="button" class="btn-cancel" id="btn-cancel-add">Cancel</button>
+        <button type="submit" class="btn-submit">Add Record</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script type="module" src="main.js"></script>
+  <script type="module" src="interactions.js"></script>
+</body>
+
+</html>

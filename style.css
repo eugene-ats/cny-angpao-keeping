@@ -1,0 +1,71 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #2b2b2b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Maintain a 16:9 relative area to match the image accurately */
+.desk-container {
+  width: 100vw;
+  max-width: calc(100vh * (16/9));
+  /* Match standard 1080p width ratio */
+  height: 100vh;
+  max-height: calc(100vw * (9/16));
+  position: relative;
+  background-image: url('gemini angpao and notebook on desk.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.interactive-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hotspot {
+  position: absolute;
+  cursor: pointer;
+  border-radius: 8px;
+  /* Slightly rounded edges */
+  transition: box-shadow 0.2s ease-in-out, transform 0.2s;
+}
+
+/* Debug Mode (toggle via js later if needed, but we'll leave borders off normally) */
+.hotspot:hover {
+  box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.4);
+  transform: scale(1.02);
+}
+
+/* Adjust these coordinates based on the image visually */
+.hotspot-angpao {
+  /* Angpao on the left side */
+  top: 30%;
+  left: 20%;
+  width: 20%;
+  height: 60%;
+  transform: rotate(-15deg);
+}
+
+.hotspot-pen {
+  /* Pen near the notebook */
+  top: 40%;
+  left: 80%;
+  width: 5%;
+  height: 50%;
+  transform: rotate(10deg);
+}
