@@ -61,5 +61,3 @@ class ObjectStore {
 
 // Initialize global store
 export const angpaoStore = new ObjectStore(LOCAL_STORAGE_KEY);
-
-console.log('CNY Angpao State Management initialized.');
