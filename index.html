@@ -26,21 +26,23 @@
   <!-- Add Angpao Modal Dialog -->
   <dialog id="add-angpao-modal" class="cny-modal">
     <form method="dialog" id="add-angpao-form">
-      <h2>Add Angpao</h2>
+      <h2 id="modal-title">Add Angpao</h2>
 
-      <div class="input-group">
-        <label for="angpao-from">From:</label>
-        <input type="text" id="angpao-from" name="from" required placeholder="e.g. Grandma" autocomplete="off" />
-      </div>
+      <div class="form-row">
+        <div class="input-group from-group">
+          <label for="angpao-from">From:</label>
+          <input type="text" id="angpao-from" name="from" required placeholder="e.g. Grandma" autocomplete="off" />
+        </div>
 
-      <div class="input-group">
-        <label for="angpao-amount">Amount:</label>
-        <input type="number" id="angpao-amount" name="amount" required placeholder="e.g. 50" min="0" step="1" />
+        <div class="input-group amount-group">
+          <label for="angpao-amount">Amount:</label>
+          <input type="number" id="angpao-amount" name="amount" required placeholder="e.g. 50" min="0" step="1" />
+        </div>
       </div>
 
       <menu class="modal-actions">
         <button type="button" class="btn-cancel" id="btn-cancel-add">Cancel</button>
-        <button type="submit" class="btn-submit">Add Record</button>
+        <button type="submit" class="btn-submit" id="btn-submit-modal">Add Record</button>
       </menu>
     </form>
   </dialog>
