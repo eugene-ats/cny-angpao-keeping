@@ -47,7 +47,8 @@ html {
 }
 
 /* Subtle glow to hint at interactivity without affecting rotational transforms */
-.hotspot:hover {
+.hotspot:hover,
+.hotspot.onboarding-glow {
   box-shadow: 0 0 15px 5px rgba(255, 215, 0, 0.4);
 }
 
@@ -245,4 +246,57 @@ button:active {
 .btn-submit {
   background-color: #f1c40f;
   color: #c0392b;
+}
+
+/* --- Onboarding Tooltips (FTUE) --- */
+.onboarding-tooltip {
+  position: absolute;
+  background-color: #c0392b;
+  /* Match global theme */
+  color: white;
+  padding: 8px 12px;
+  border: 2px solid #f1c40f;
+  border-radius: 8px;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  /* Let clicks pass through to the hotspot */
+  z-index: 100;
+  opacity: 0;
+  animation: fadeInOut 2s ease-in-out forwards;
+}
+
+/* Tooltip positions - you can adjust these manually in the code later! */
+#angpao-tooltip {
+  top: 60%;
+  left: 35%;
+}
+
+#pen-tooltip {
+  top: 70%;
+  right: 17%;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 }

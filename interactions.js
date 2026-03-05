@@ -129,4 +129,49 @@ document.addEventListener('DOMContentLoaded', () => {
             resetModalState();
         });
     }
+
+    // --- Onboarding FTUE (First Time User Experience) ---
+    const runOnboardingSequence = () => {
+        // Check if the user has already seen the onboarding
+        const hasSeenOnboarding = localStorage.getItem('cny_angpao_onboarding_shown');
+        if (!hasSeenOnboarding) {
+            const interactiveLayer = document.querySelector('.interactive-layer');
+            if (!interactiveLayer) return;
+
+            // Step 1: Angpao Hint (0s to 2s)
+            const angpaoHint = document.createElement('div');
+            angpaoHint.className = 'onboarding-tooltip';
+            angpaoHint.id = 'angpao-tooltip';
+            angpaoHint.textContent = 'Press to add an Angpao';
+            interactiveLayer.appendChild(angpaoHint);
+
+            if (angpaoClicker) angpaoClicker.classList.add('onboarding-glow');
+
+            // Step 2: Pen Hint (2s to 4s)
+            setTimeout(() => {
+                // Destroy first tooltip and remove glow
+                if (angpaoHint.parentNode) angpaoHint.remove();
+                if (angpaoClicker) angpaoClicker.classList.remove('onboarding-glow');
+
+                const penHint = document.createElement('div');
+                penHint.className = 'onboarding-tooltip';
+                penHint.id = 'pen-tooltip';
+                penHint.textContent = 'Press to edit Angpao';
+                interactiveLayer.appendChild(penHint);
+
+                if (penClicker) penClicker.classList.add('onboarding-glow');
+
+                // Step 3: Cleanup and save states (4s)
+                setTimeout(() => {
+                    if (penHint.parentNode) penHint.remove();
+                    if (penClicker) penClicker.classList.remove('onboarding-glow');
+                    // Mark onboarding as completed so it never shows again
+                    localStorage.setItem('cny_angpao_onboarding_shown', 'true');
+                }, 2000);
+            }, 2000); // Wait 2 seconds for the first animation to finish
+        }
+    };
+
+    // Execute the check on load
+    runOnboardingSequence();
 });
