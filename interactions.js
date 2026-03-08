@@ -21,7 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!angpaoList) return;
         angpaoList.innerHTML = ''; // Clear currently rendered list
 
+        let totalAmount = 0;
+
         data.forEach(entry => {
+            totalAmount += entry.amount;
+
             const li = document.createElement('li');
             li.setAttribute('data-id', entry.id);
 
@@ -64,6 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
             li.appendChild(delBtn);
             angpaoList.appendChild(li);
         });
+
+        // Update Total
+        const totalValueEl = document.getElementById('angpao-total-value');
+        if (totalValueEl) {
+            totalValueEl.textContent = `$${totalAmount.toFixed(0)}`;
+        }
     };
 
     // Subscribing the renderer function implicitly ensures HTML accurately reflects LocalStorage

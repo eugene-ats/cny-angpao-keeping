@@ -88,27 +88,31 @@ html {
   top: 28.8vh;
   left: 103vh;
   width: 33vh;
-  height: 48vh;
+  height: 46vh;
   transform: rotate(4deg);
   /* Slightly skewed to match notebook */
-  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
   padding: 10px 15px;
   /* Handwritten feel */
   font-family: 'Comic Sans MS', cursive, sans-serif;
   font-size: 1rem;
   line-height: 0.5rem;
   color: #2c3e50;
-  list-style-type: none;
 }
 
 /* Hide scrollbar logically to maintain handwritten notebook effect but keep scrollability */
-.notebook-list::-webkit-scrollbar {
-  display: none;
-}
-
-.notebook-list {
+#angpao-list {
+  list-style-type: none;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
   -ms-overflow-style: none;
   scrollbar-width: none;
+}
+
+#angpao-list::-webkit-scrollbar {
+  display: none;
 }
 
 .notebook-list li {
@@ -132,6 +136,17 @@ html {
 
 .notebook-list.edit-mode li:hover {
   background-color: rgba(255, 69, 0, 0.1);
+}
+
+.angpao-total-row {
+  margin-top: auto;
+  padding: 5px 0;
+  border-top: 2px dashed rgba(114, 37, 6, 0.966);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  flex-shrink: 0;
 }
 
 .delete-btn {
