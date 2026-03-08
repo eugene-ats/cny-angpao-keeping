@@ -157,6 +157,59 @@ html {
   pointer-events: auto;
 }
 
+/* --- SVG Edit Mode Dim Overlay --- */
+.edit-mode-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+  /* Let normal clicks pass through */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.edit-mode-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  /* Block clicks to Angpao in background */
+}
+
+/* Share identical coordinates from hotspots into the SVG rects using CSS variables or direct rules */
+.mask-hole {
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+.mask-notebook {
+  x: 97vh;
+  y: 28vh;
+  width: 43vh;
+  height: 54vh;
+  transform: rotate(4deg);
+}
+
+.mask-pen {
+  x: 147vh;
+  y: 44vh;
+  width: 8vh;
+  height: 50vh;
+  transform: rotate(6.5deg);
+}
+
+/* Elevated Z-indexes to be above the dark SVG layer (10) */
+.hotspot-pen {
+  z-index: 20;
+}
+
+.notebook-list {
+  z-index: 20;
+}
+
 /* Modal Styling - CNY Theme */
 .cny-modal {
   margin: auto;

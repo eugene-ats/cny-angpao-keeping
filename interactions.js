@@ -86,12 +86,16 @@ document.addEventListener('DOMContentLoaded', () => {
     if (penClicker && notebookListContainer) {
         penClicker.addEventListener('click', () => {
             isEditMode = !isEditMode;
+            const editModeOverlay = document.getElementById('edit-mode-overlay');
+
             if (isEditMode) {
                 notebookListContainer.classList.add('edit-mode');
                 penClicker.classList.add('active'); // Highlight pen actively via CSS class
+                if (editModeOverlay) editModeOverlay.classList.add('active');
             } else {
                 notebookListContainer.classList.remove('edit-mode');
                 penClicker.classList.remove('active'); // Remove highlight class
+                if (editModeOverlay) editModeOverlay.classList.remove('active');
             }
         });
     }

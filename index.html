@@ -12,6 +12,19 @@
 
   <main class="desk-container">
     <div class="interactive-layer">
+      <!-- SVG Dimming Overlay (Active only in Edit Mode) -->
+      <svg id="edit-mode-overlay" class="edit-mode-overlay" width="100%" height="100%">
+        <defs>
+          <mask id="spotlight-mask">
+            <!-- White = fully opaque (drawn darkness) -->
+            <rect width="100%" height="100%" fill="white" />
+            <!-- Black = fully transparent (punched holes) -->
+            <rect class="mask-hole mask-notebook" rx="8" fill="black" />
+            <rect class="mask-hole mask-pen" rx="10" fill="black" />
+          </mask>
+        </defs>
+        <rect width="100%" height="100%" fill="rgba(0,0,0,0.4)" mask="url(#spotlight-mask)" />
+      </svg>
       <!-- Interactive Clickable Hotspots mapped directly over the background image -->
       <div id="hotspot-angpao" class="hotspot hotspot-angpao" title="Add Angpao"></div>
       <div id="hotspot-pen" class="hotspot hotspot-pen" title="Toggle Edit Mode"></div>
