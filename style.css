@@ -85,7 +85,7 @@ html {
 /* Notebook List Display (Stage 5 mapping) */
 .notebook-list {
   position: absolute;
-  top: 28.8vh;
+  top: 29vh;
   left: 103vh;
   width: 33vh;
   height: 46vh;
@@ -93,11 +93,11 @@ html {
   /* Slightly skewed to match notebook */
   display: flex;
   flex-direction: column;
-  padding: 10px 15px;
+  padding: 1.5vh 2.4vh;
   /* Handwritten feel */
   font-family: 'Comic Sans MS', cursive, sans-serif;
-  font-size: 1rem;
-  line-height: 0.5rem;
+  font-size: 2vh;
+  line-height: 1.75vh;
   color: #2c3e50;
 }
 
@@ -116,8 +116,7 @@ html {
 }
 
 .notebook-list li {
-  padding: 5px 0;
-  border-bottom: 2px solid rgba(139, 69, 19, 0.1);
+  padding: 0.5vh 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -126,7 +125,7 @@ html {
 .entry-amount {
   /* This pushes the amount text all the way to the right side next to the delete button */
   margin-left: auto;
-  margin-right: 5px;
+  margin-right: 0.5vh;
   /* Add a tiny space so it's not perfectly flush with the delete button */
 }
 
