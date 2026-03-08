@@ -369,3 +369,51 @@ button:active {
     transform: translateY(-10px);
   }
 }
+
+/* --- Sort Toggle Button --- */
+.sort-toggle-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: #A94C3F;
+  color: #F8EB8A;
+  /* Explicitly state text/stroke color */
+  border: 2px solid #c0392b;
+  padding: 0;
+  /* Reset browser default button padding */
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  z-index: 30;
+  /* Ensure this is definitely above the dark SVG mask (index 10) */
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.sort-toggle-btn svg.sort-icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+  transition: transform 0.3s ease;
+}
+
+/* Upside down when sorted ascending (or default depending on active toggle mapping) */
+.sort-toggle-btn.desc svg.sort-icon {
+  transform: rotate(180deg);
+}
+
+.sort-toggle-btn:hover {
+  background-color: #b64321;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.sort-toggle-btn:active {
+  transform: translateY(1px) scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

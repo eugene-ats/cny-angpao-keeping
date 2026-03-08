@@ -11,10 +11,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const addAngpaoModal = document.getElementById('add-angpao-modal');
     const addAngpaoForm = document.getElementById('add-angpao-form');
     const btnCancelAdd = document.getElementById('btn-cancel-add');
+    const btnSort = document.getElementById('btn-sort');
 
     // State mode
     let isEditMode = false;
     let currentEditId = null;
+    let isSortedDesc = false; // Sort state
 
     // --- State rendering logic ---
     const renderList = (data) => {
@@ -23,7 +25,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let totalAmount = 0;
 
-        data.forEach(entry => {
+        // Apply sorting if enabled
+        let renderedData = [...data];
+        if (isSortedDesc) {
+            renderedData.sort((a, b) => b.amount - a.amount);
+            if (btnSort) btnSort.classList.add('desc');
+        } else {
+            // Keep original order 
+            if (btnSort) btnSort.classList.remove('desc');
+        }
+
+        renderedData.forEach(entry => {
             totalAmount += entry.amount;
 
             const li = document.createElement('li');
@@ -107,6 +119,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 penClicker.classList.remove('active'); // Remove highlight class
                 if (editModeOverlay) editModeOverlay.classList.remove('active');
             }
+        });
+    }
+
+    // Clicking Sort toggles sorting state and re-renders
+    if (btnSort) {
+        btnSort.addEventListener('click', () => {
+            isSortedDesc = !isSortedDesc;
+            renderList(angpaoStore.data); // Force re-render with new sort order
         });
     }
 
